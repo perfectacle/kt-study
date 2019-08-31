@@ -1,0 +1,7 @@
+package ch01;
+
+public class SomeJavaClass2 {
+    public static void main(String[] args) {
+        new SomeJavaClass();
+    }
+}
