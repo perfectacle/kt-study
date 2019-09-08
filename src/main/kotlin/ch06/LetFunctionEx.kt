@@ -5,6 +5,10 @@ fun sendEmailTo(email: String) {
 }
 
 fun main() {
+    var arrayListOf: List<Any> = listOf<Any>()
+//    arrayListOf.plus(1)
+//    arrayListOf = MutableList(1, )
+
     val email: String? = "asdf"
 
     email?.let { e -> sendEmailTo(e) }
