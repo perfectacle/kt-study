@@ -3,11 +3,12 @@ package com.example.spring
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
+import javax.validation.Valid
 
 @RestController
 class Controller {
     @PostMapping
-    fun test(@RequestBody requestBody: DTO3): DTO3 {
+    fun test(@RequestBody @Valid requestBody: DTO3): DTO3 {
         println()
         return requestBody
     }

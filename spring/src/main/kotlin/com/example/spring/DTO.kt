@@ -1,6 +1,7 @@
 package com.example.spring
 
 import com.fasterxml.jackson.annotation.JsonProperty
+import javax.validation.constraints.NotBlank
 
 /**
  * deserialize from (request body)
@@ -13,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
  * 2. non-null tpye이고, default value가 있는데 client에서 null을 넘기면 아래 오류가 남.
  * JSON property name due to missing (therefore NULL) value for creator parameter name which is a non-nullable type
  * */
-data class DTO(val name: String?)
+data class DTO(@field:NotBlank(message = "이름을 입력해주세요.") val name: String?)
 
 /**
  * deserialize from (request body)
@@ -32,7 +33,7 @@ data class DTO2(@JsonProperty("n") val name: String?)
  * {names: "name"}
  * */
 class DTO3(name: String?) {
-    var name = name
-        @JsonProperty(value = "names", access = JsonProperty.Access.READ_ONLY) get
-        @JsonProperty(value = "n", access = JsonProperty.Access.WRITE_ONLY) set
+    @field:NotBlank(message = "이름을 입력해주세요.")
+    @JsonProperty("n")
+    val name = name?.trim()
 }
